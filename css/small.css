@@ -18,3 +18,101 @@ html,
 body{
   height: 100%;
 }
+
+
+body{
+  display: grid;
+  grid: "header" 5em
+        "banner1" 10em
+        "main" 20em
+        "banner2" 10em
+        "footer" 5em /
+        1fr;
+  background-color: #000;
+}
+
+.hide {
+  display: none;
+}
+
+.selected {
+  border: #f00 2px solid;
+}
+
+/***HEADER***/
+header {
+  grid-area: header;
+}
+
+header h1,
+header h3 {
+  margin: 0;
+  color: #fff;
+  font-weight: 300;
+  font-style: italic;
+}
+
+header h1 {
+  padding: .5rem 0 0 0;
+  font-size: 1.95rem;
+}
+
+header h3 {
+  padding: .2rem 0 0 0;
+  font-size: 1.05rem;
+}
+
+
+/***BANNERS***/
+#banner1 {
+  grid-area: banner1;
+}
+
+#banner2 {
+  grid-area: banner2;
+}
+
+/***MAIN***/
+main {
+  grid-area: main;
+}
+
+/***WELCOME SECTION***/
+#welcome {
+  display: grid;
+  grid: auto 1fr / repeat(4, 1fr);
+  justify-content: center;
+}
+
+#welcome h2,
+#welcome p,
+#welcome img {
+  grid-column: 1 / -1;
+  margin: 5px 2vw;
+}
+
+#welcome h2,
+#welcome p {
+  color: #fff;
+  text-align: center;
+}
+
+#welcome h2 {
+  font-size: 35px;
+}
+
+#welcome img {
+  cursor: pointer;
+}
+
+
+#gameStart {
+  grid-column: 2 / 4;
+  padding: 2rem;
+  font-size: 20px;
+}
+
+
+footer {
+  grid-area: footer;
+}

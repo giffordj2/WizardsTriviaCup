@@ -1,7 +1,15 @@
 /*CSS styles to change the layout for medium sized screens(Tablets)*/
 @media only screen and (min-width: 768px) {
 
-  
+  #welcome img {
+    grid-column: span 2;
+  }
+
+  #gameStart {
+    grid-column: 2 /3;
+    padding: 2rem;
+    font-size: 20px;
+  }
    
   
   }
