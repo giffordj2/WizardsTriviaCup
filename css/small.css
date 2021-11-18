@@ -23,12 +23,11 @@ body{
 body{
   display: grid;
   grid: "header" 5em
-        "banner1" 10em
-        "main" 20em
-        "banner2" 10em
+        "main" auto
         "footer" 5em /
         1fr;
   background-color: #000;
+  align-items: center;
 }
 
 .hide {
@@ -66,10 +65,12 @@ header h3 {
 /***BANNERS***/
 #banner1 {
   grid-area: banner1;
+  background-color: #7F0909;
 }
 
 #banner2 {
   grid-area: banner2;
+  background-color: #7F0909;
 }
 
 /***MAIN***/
@@ -82,6 +83,7 @@ main {
   display: grid;
   grid: auto 1fr / repeat(4, 1fr);
   justify-content: center;
+  align-content: center;
 }
 
 #welcome h2,

@@ -1,6 +1,13 @@
 /*CSS styles to change the layout for large sized screens(Computer screens)*/
 @media only screen and (min-width: 1024px) {
 
+  body {
+    grid: "header header header" 5em
+        "banner1 main banner2" auto
+        "footer footer footer" 5em /
+        1fr auto 1fr;
+  }
+
   #welcome img {
     grid-column: span 1;
   }
