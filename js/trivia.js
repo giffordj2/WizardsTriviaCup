@@ -7,9 +7,12 @@ const ravenclawHouse = document.getElementById('ravenclaw');
 const banner1 = document.getElementById('banner1');
 const banner2 = document.getElementById('banner2');
 
+//Create banner image to append to banner elements
 const bannerImage = document.createElement("img");
 const bannerImage2 = document.createElement("img");
 
+//get the buttons for the site
+const startGame = document.getElementById("gameStart");
 
 //set the onclick events to add border to image and change banner colors to House colors
 gryffindorHouse.addEventListener('click',
@@ -18,7 +21,7 @@ gryffindorHouse.addEventListener('click',
             //set the background color of the two banners
             banner1.style.backgroundColor = '#7F0909';
             banner2.style.backgroundColor = '#7F0909';
-            
+
             //set banner image src to Lion Silhouette
             bannerImage.src = "../img/Lion-Silhouette.svg";
             bannerImage2.src = "../img/Lion-Silhouette.svg";
@@ -75,3 +78,8 @@ ravenclawHouse.addEventListener('click',
         banner1.appendChild(bannerImage);
         banner2.appendChild(bannerImage2);
     });
+
+startGame.addEventListener('click',
+  function(){
+    document.getElementById('welcome').classList.add('hide');
+  })
