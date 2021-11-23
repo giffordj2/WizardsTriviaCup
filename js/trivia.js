@@ -17,7 +17,10 @@ const startGame = document.getElementById("gameStart");
 //set the onclick events to add border to image and change banner colors to House colors
 gryffindorHouse.addEventListener('click',
         function(){
-            gryffindorHouse.classList.add('selected');
+            //set background color of header and footer
+            document.getElementById('header').style.backgroundColor = '#7F0909';
+            document.getElementById('footer').style.backgroundColor = '#7F0909';
+
             //set the background color of the two banners
             banner1.style.backgroundColor = '#7F0909';
             banner2.style.backgroundColor = '#7F0909';
@@ -33,7 +36,10 @@ gryffindorHouse.addEventListener('click',
 
 slytherinHouse.addEventListener('click',
     function () {
-        slytherinHouse.classList.add('selected');
+      //set background color of header and footer
+      document.getElementById('header').style.backgroundColor = '#0D6217';
+      document.getElementById('footer').style.backgroundColor = '#0D6217';
+
         //set the background color of the two banners
         banner1.style.backgroundColor = '#0D6217';
         banner2.style.backgroundColor = '#0D6217';
@@ -49,7 +55,9 @@ slytherinHouse.addEventListener('click',
 
 hufflepuffHouse.addEventListener('click',
     function () {
-        hufflepuffHouse.classList.add('selected');
+      //set background color of header and footer
+      document.getElementById('header').style.backgroundColor = '#EEE117';
+      document.getElementById('footer').style.backgroundColor = '#EEE117';
         //set the background color of the two banners
         banner1.style.backgroundColor = '#EEE117';
         banner2.style.backgroundColor = '#EEE117';
@@ -65,7 +73,9 @@ hufflepuffHouse.addEventListener('click',
 
 ravenclawHouse.addEventListener('click',
     function () {
-        ravenclawHouse.classList.add('selected');
+      //set background color of header and footer
+      document.getElementById('header').style.backgroundColor = '#000A90';
+      document.getElementById('footer').style.backgroundColor = '#000A90';
         //set the background color of the two banners
         banner1.style.backgroundColor = '#000A90';
         banner2.style.backgroundColor = '#000A60';
@@ -79,7 +89,8 @@ ravenclawHouse.addEventListener('click',
         banner2.appendChild(bannerImage2);
     });
 
-startGame.addEventListener('click',
+startGame.addEventListener('click' , 
   function(){
     document.getElementById('welcome').classList.add('hide');
+    document.getElementById('triviaGame').classList.remove('hide');
   })

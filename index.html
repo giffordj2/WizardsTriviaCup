@@ -14,7 +14,7 @@
 
     </head>
     <body>
-        <header>
+        <header id="header">
             <h1>Wizarding</h1>
             <h3>World Trivia</h3>
         </header>
@@ -32,22 +32,24 @@
 
             </section>
             <!--This section will contain the trivia game items like the question, answer options, and score-->
-            <section id="triviaGame">
-
-            </section>
-            <!--This section will be displayed after the user has answered a question annoucing if they are correct or not-->
-            <section id="results">
-
+            <section id="triviaGame" class="hide">
+              <h3 id="score">SCORE: 0 / 10</h3>
+              <p id="question">This is where the question will be displayed.</p>
+              <button id="answerA" class="answers">A.</button>
+              <button id="answerB" class="answers">B.</button>
+              <button id="answerC" class="answers">C.</button>
+              <button id="answerD" class="answers">D.</button>
+              <button id="quitGame">QUIT</button>
+              <button id="nextQuestion">Next Question</button>
             </section>
         </main>
         <!--These are the house banners of the house the user chose to represent-->
         <aside id="banner1">
         </aside>
         <aside id="banner2">
-
         </aside>
-        <footer>
-
+        <footer id="footer">
+          <p>&copy Joel Gifford</p>
         </footer>
         <script src="js/trivia.js"></script>
     </body>

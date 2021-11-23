@@ -34,19 +34,17 @@ body{
   display: none;
 }
 
-.selected {
-  border: #f00 2px solid;
-}
 
 /***HEADER***/
 header {
   grid-area: header;
+  color: #fff;
 }
 
 header h1,
 header h3 {
   margin: 0;
-  color: #fff;
+
   font-weight: 300;
   font-style: italic;
 }
@@ -103,7 +101,8 @@ main {
   font-size: 35px;
 }
 
-#welcome img {
+#welcome img,
+.answers {
   cursor: pointer;
 }
 
@@ -115,10 +114,44 @@ main {
 }
 
 
-#welcome.hide {
+#welcome.hide,
+#triviaGame.hide {
   display: none;
+}
+
+/***GAME SECTION***/
+#triviaGame {
+  display: grid;
+  grid: auto 1fr / repeat(3 , 1fr);
+  grid-gap: 5px;
+}
+
+#triviaGame h3 {
+  color: #fff;
+  grid-column: -2 / -1;
+}
+
+#question,
+.answers {
+  grid-column: 1 / -1;
+  background-color: #ccc;
+  border: solid 2px #00E6E6;
+  border-radius: 25%;
+  text-align: center;
+  padding: 25px;
+  margin: 5px;
+}
+
+
+#question {
+  grid-row: span 2;
+}
+
+#nextQuestion {
+  grid-column: -2 / -1;
 }
 
 footer {
   grid-area: footer;
+  color: #fff;
 }

@@ -10,6 +10,14 @@
     padding: 2rem;
     font-size: 20px;
   }
-   
-  
+
+  #triviaGame {
+    grid: auto 1fr / repeat(4 , 1fr);
+  }
+
+  .answers {
+    grid-column: span 2;
+  }
+
+
   }
