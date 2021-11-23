@@ -1,38 +1,58 @@
-//set variables for all HTML elements to be manipulated
-const gryffindorHouse = document.getElementById("gryffindor");
-const slytherinHouse = document.getElementById('slytherin');
-const hufflepuffHouse = document.getElementById('hufflepuff');
-const ravenclawHouse = document.getElementById('ravenclaw');
+//set variables to get House Crest
+let gryffindorHouse = document.getElementById("gryffindor");
+let slytherinHouse = document.getElementById('slytherin');
+let hufflepuffHouse = document.getElementById('hufflepuff');
+let ravenclawHouse = document.getElementById('ravenclaw');
 
-const banner1 = document.getElementById('banner1');
-const banner2 = document.getElementById('banner2');
+//Set variables for House colors
+let gryffindorPrimary = '#7F0909';
+let gryffindorSecondary = '#FFC500';
 
-//Create banner image to append to banner elements
-const bannerImage = document.createElement("img");
-const bannerImage2 = document.createElement("img");
+let slytherinPrimary = '#0D6217';
+let slytherinSecondary = '#AAA';
+
+let hufflepuffPrimary = '#EEE117';
+let hufflepuffSecondary = '#000';
+
+let ravenclawPrimary = '#000A90';
+let ravenclawSecondary = '#946B2D';
+
+
+//function to create House Banners
+function createBanners(backgroundColor,animal){
+  //get aside elements that represent the banners
+  let banner1 = document.getElementById('banner1');
+  let banner2 = document.getElementById('banner2');
+
+  //Create banner image to append to banner elements
+  let bannerImage = document.createElement("img");
+  let bannerImage2 = document.createElement("img");
+
+  //set the background color of the two banners
+  banner1.style.backgroundColor = backgroundColor;
+  banner2.style.backgroundColor = backgroundColor;
+
+  //set banner image src to Lion Silhouette
+  bannerImage.src = "../img/" + animal + "-Silhouette.svg";
+  bannerImage2.src = "../img/" + animal + "-Silhouette.svg";
+
+  //append banner image to the banners
+  banner1.appendChild(bannerImage);
+  banner2.appendChild(bannerImage2);
+}
+
 
 //get the buttons for the site
-const startGame = document.getElementById("gameStart");
+let startGame = document.getElementById("gameStart");
 
 //set the onclick events to add border to image and change banner colors to House colors
 gryffindorHouse.addEventListener('click',
         function(){
             //set background color of header and footer
             document.getElementById('header').style.backgroundColor = '#7F0909';
-            document.getElementById('footer').style.backgroundColor = '#7F0909';
+            document.getElementById('footer').style.backgroundColor = '#7F0909';}
 
-            //set the background color of the two banners
-            banner1.style.backgroundColor = '#7F0909';
-            banner2.style.backgroundColor = '#7F0909';
-
-            //set banner image src to Lion Silhouette
-            bannerImage.src = "../img/Lion-Silhouette.svg";
-            bannerImage2.src = "../img/Lion-Silhouette.svg";
-
-            //append banner image to the banners
-            banner1.appendChild(bannerImage);
-            banner2.appendChild(bannerImage2);
-        });
+          createBanners(gryffindorPrimary, "Lion"));
 
 slytherinHouse.addEventListener('click',
     function () {
@@ -89,7 +109,7 @@ ravenclawHouse.addEventListener('click',
         banner2.appendChild(bannerImage2);
     });
 
-startGame.addEventListener('click' , 
+startGame.addEventListener('click' ,
   function(){
     document.getElementById('welcome').classList.add('hide');
     document.getElementById('triviaGame').classList.remove('hide');
