@@ -33,8 +33,8 @@ function createBanners(backgroundColor,animal){
   banner2.style.backgroundColor = backgroundColor;
 
   //set banner image src to Lion Silhouette
-  bannerImage.src = "../img/" + animal + "-Silhouette.svg";
-  bannerImage2.src = "../img/" + animal + "-Silhouette.svg";
+  bannerImage.src = "img/" + animal + "-Silhouette.svg";
+  bannerImage2.src = "img/" + animal + "-Silhouette.svg";
 
   //append banner image to the banners
   banner1.appendChild(bannerImage);
@@ -50,9 +50,12 @@ gryffindorHouse.addEventListener('click',
         function(){
             //set background color of header and footer
             document.getElementById('header').style.backgroundColor = '#7F0909';
-            document.getElementById('footer').style.backgroundColor = '#7F0909';}
+            document.getElementById('footer').style.backgroundColor = '#7F0909';});
 
-          createBanners(gryffindorPrimary, "Lion"));
+gryffindorHouse.addEventListener('click',
+          function(){
+            createBanners(gryffindorPrimary, "Lion") }
+          );
 
 slytherinHouse.addEventListener('click',
     function () {
