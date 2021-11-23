@@ -27,7 +27,6 @@ body{
         "footer" 5em /
         1fr;
   background-color: #000;
-  align-items: center;
 }
 
 .hide {
@@ -63,13 +62,12 @@ header h3 {
 /***BANNERS***/
 #banner1 {
   grid-area: banner1;
-  background-color: #7F0909;
 }
 
 #banner2 {
   grid-area: banner2;
-  background-color: #7F0909;
 }
+
 
 /***MAIN***/
 main {
@@ -101,6 +99,7 @@ main {
 #welcome h2 {
   font-size: 35px;
 }
+
 
 #welcome img,
 .answers {

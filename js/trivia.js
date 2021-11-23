@@ -24,15 +24,22 @@ function createBanners(backgroundColor,animal){
   let banner1 = document.getElementById('banner1');
   let banner2 = document.getElementById('banner2');
 
-  //Create banner image to append to banner elements
-  let bannerImage = document.createElement("img");
-  let bannerImage2 = document.createElement("img");
-
   //set the background color of the two banners
   banner1.style.backgroundColor = backgroundColor;
   banner2.style.backgroundColor = backgroundColor;
 
-  //set banner image src to Lion Silhouette
+  //Check to set if banner already has images if not create them
+  if(document.getElementById('bannerImage') === null){
+
+  //Create banner image to append to banner elements
+  let bannerImage = document.createElement("img");
+  let bannerImage2 = document.createElement("img");
+
+  //set id for images
+  bannerImage.id = 'bannerImage';
+  bannerImage2.id = 'bannerImage2';
+
+  //set banner image src to animal Silhouette
   bannerImage.src = "img/" + animal + "-Silhouette.svg";
   bannerImage2.src = "img/" + animal + "-Silhouette.svg";
 
@@ -40,17 +47,27 @@ function createBanners(backgroundColor,animal){
   banner1.appendChild(bannerImage);
   banner2.appendChild(bannerImage2);
 }
+else { //change the banner image source
+  bannerImage = document.getElementById('bannerImage');
+  bannerImage2 = document.getElementById('bannerImage2');
+
+  bannerImage.src = "img/" + animal + "-Silhouette.svg";
+  bannerImage2.src = "img/" + animal + "-Silhouette.svg";
+
+}
+}
 
 
 //get the buttons for the site
 let startGame = document.getElementById("gameStart");
+let quitGame = document.getElementById("quitGame");
 
-//set the onclick events to add border to image and change banner colors to House colors
+//set the onclick events to change banner colors to House colors
 gryffindorHouse.addEventListener('click',
         function(){
             //set background color of header and footer
-            document.getElementById('header').style.backgroundColor = '#7F0909';
-            document.getElementById('footer').style.backgroundColor = '#7F0909';});
+            document.getElementById('header').style.backgroundColor = gryffindorSecondary;
+            document.getElementById('footer').style.backgroundColor = gryffindorSecondary;});
 
 gryffindorHouse.addEventListener('click',
           function(){
@@ -58,62 +75,46 @@ gryffindorHouse.addEventListener('click',
           );
 
 slytherinHouse.addEventListener('click',
-    function () {
-      //set background color of header and footer
-      document.getElementById('header').style.backgroundColor = '#0D6217';
-      document.getElementById('footer').style.backgroundColor = '#0D6217';
+function(){
+    //set background color of header and footer
+    document.getElementById('header').style.backgroundColor = slytherinSecondary;
+    document.getElementById('footer').style.backgroundColor = slytherinSecondary;});
 
-        //set the background color of the two banners
-        banner1.style.backgroundColor = '#0D6217';
-        banner2.style.backgroundColor = '#0D6217';
-
-        //set banner image src to Snake Silhouette
-        bannerImage.src = "../img/Snake-Silhouette.svg";
-        bannerImage2.src = "../img/Snake-Silhouette.svg";
-
-        //append banner image to the banners
-        banner1.appendChild(bannerImage);
-        banner2.appendChild(bannerImage2);
-    });
+slytherinHouse.addEventListener('click',
+    function(){
+      createBanners(slytherinPrimary, "Snake") }
+    );
 
 hufflepuffHouse.addEventListener('click',
-    function () {
-      //set background color of header and footer
-      document.getElementById('header').style.backgroundColor = '#EEE117';
-      document.getElementById('footer').style.backgroundColor = '#EEE117';
-        //set the background color of the two banners
-        banner1.style.backgroundColor = '#EEE117';
-        banner2.style.backgroundColor = '#EEE117';
+function(){
+    //set background color of header and footer
+    document.getElementById('header').style.backgroundColor = hufflepuffSecondary;
+    document.getElementById('footer').style.backgroundColor = hufflepuffSecondary;});
 
-        //set banner image src to Badger Silhouette
-        bannerImage.src = "../img/Badger-Silhouette.svg";
-        bannerImage2.src = "../img/Badger-Silhouette.svg";
-
-        //append banner image to the banners
-        banner1.appendChild(bannerImage);
-        banner2.appendChild(bannerImage2);
-    });
+hufflepuffHouse.addEventListener('click',
+        function(){
+          createBanners(hufflepuffPrimary, "Badger") }
+        );
 
 ravenclawHouse.addEventListener('click',
-    function () {
-      //set background color of header and footer
-      document.getElementById('header').style.backgroundColor = '#000A90';
-      document.getElementById('footer').style.backgroundColor = '#000A90';
-        //set the background color of the two banners
-        banner1.style.backgroundColor = '#000A90';
-        banner2.style.backgroundColor = '#000A60';
+function(){
+    //set background color of header and footer
+    document.getElementById('header').style.backgroundColor = ravenclawSecondary;
+    document.getElementById('footer').style.backgroundColor = ravenclawSecondary;});
 
-        //set banner image src to Raven Silhouette
-        bannerImage.src = "../img/Raven-Silhouette.svg";
-        bannerImage2.src = "../img/Raven-Silhouette.svg";
-
-        //append banner image to the banners
-        banner1.appendChild(bannerImage);
-        banner2.appendChild(bannerImage2);
-    });
+ravenclawHouse.addEventListener('click',
+        function(){
+          createBanners(ravenclawPrimary, "Raven") }
+        );
 
 startGame.addEventListener('click' ,
   function(){
     document.getElementById('welcome').classList.add('hide');
     document.getElementById('triviaGame').classList.remove('hide');
+  });
+
+  quitGame.addEventListener('click',
+  function(){
+    document.getElementById('welcome').classList.remove('hide');
+    document.getElementById('triviaGame').classList.add('hide');
   })
