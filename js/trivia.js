@@ -17,6 +17,100 @@ let hufflepuffSecondary = '#000';
 let ravenclawPrimary = '#000A90';
 let ravenclawSecondary = '#946B2D';
 
+//Create a array to hold teh trivia questions
+const triviaQuestions = [
+  {
+    question: 'At the first meeting of the Duelling Club, Draco Malfoy summoned what animal with the spell "Serpensortia"?',
+    answerA: 'Frog',
+    answerB: 'Snake',
+    answerC: 'Dragon',
+    answerD: 'Bear',
+    correctAnswer: 'B',
+    answered: false
+  },
+  {
+    question: 'Gilderoy Lockhart tried to use "Brackium Emendo" to fix Harry’s broken bones. What did it actually do to him?',
+    answerA: 'Turned his leg wooden',
+    answerB: 'Removed his bones entirely',
+    answerC: 'Forced him to speak Parseltongue',
+    answerD: 'Gave him an exquisite singing voice',
+    correctAnswer: 'B',
+    answered: false
+  },
+  {
+    question: '"Wit beyond measure is man\’s greatest treasure" is the motto of which house?',
+    answerA: 'Gryffindor',
+    answerB: 'Hufflepuff',
+    answerC: 'Ravenclaw',
+    answerD: 'Slytherin',
+    correctAnswer: 'C',
+    answered: false
+  },
+  {
+    question: 'What was the name of the Black family’s house elf?',
+    answerA: 'Dobby',
+    answerB: 'Winky',
+    answerC: 'Kreacher',
+    answerD: 'Hoky',
+    correctAnswer: 'C',
+    answered: false
+  },
+  {
+    question: 'What is a thestral?',
+    answerA: 'A half-giant',
+    answerB: 'An invisible winged horse',
+    answerC: 'A shrunken head',
+    answerD: 'A pixie',
+    correctAnswer: 'B',
+    answered: false
+  },
+  {
+    question: 'When unearthed, a mandrake will do what?',
+    answerA: 'Dance',
+    answerB: 'Burp',
+    answerC: 'Scream',
+    answerD: 'Laugh',
+    correctAnswer: 'C',
+    answered: false
+  },
+  {
+    question: 'What position does Harry play on his Quidditch team?',
+    answerA: 'Chaser',
+    answerB: 'Keeper',
+    answerC: 'Bludger',
+    answerD: 'Seeker',
+    correctAnswer:'D',
+    answered: false,
+  },
+  {
+    question: 'Who poses as Mad-Eye Moody, Harry\’s 4th year Defense Against the Dark Arts professor?',
+    answerA: 'Voldemort',
+    answerB: 'Peter Pettigrew',
+    answerC: 'Barty Crouch Jr',
+    answerD: 'Sirius Black',
+    correctAnswer: 'C',
+    answered: false
+  },
+  {
+    question: 'Albus Dumbledore destroyed which Horcrux?',
+    answerA: 'Slytherin’s locket',
+    answerB: 'Nagini',
+    answerC: 'Hufflepuff\'s cup',
+    answerD: 'Marvolo Gaunt\’s ring',
+    correctAnswer: 'D',
+    answered: false
+  },
+  {
+    question: 'Finish the inscription on Dobby’s tombstone: "Here lies Dobby…"',
+    answerA: 'A true friend',
+    answerB: 'The best servant',
+    answerC: 'A free Elf',
+    answerD: 'Master of socks',
+    correctAnswer: 'C',
+    answered: false
+  },
+];
+
 
 //function to create House Banners
 function createBanners(backgroundColor,animal){
