@@ -191,6 +191,14 @@ function checkCorrect(answer) {
   }
 }
 
+//function to reset answer buttons background colors
+function resetColors(){
+  let answers = document.getElementsByClassName('answers');
+  for( let i = 0; i < answers.length; i++){
+    answers[i].style.backgroundColor = '#ccc';
+  }
+}
+
 //get the buttons for the site
 let startGame = document.getElementById("gameStart");
 let quitGame = document.getElementById("quitGame");
@@ -280,6 +288,7 @@ nextQuestion.addEventListener('click',
       questionCount = 0;
     }
     loadQuestion(triviaQuestions[questionCount]);
+    resetColors();
   });
 
 answerA.addEventListener('click',
