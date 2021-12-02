@@ -17,9 +17,12 @@ let hufflepuffSecondary = '#000';
 let ravenclawPrimary = '#000A90';
 let ravenclawSecondary = '#946B2D';
 
-//Create a array to hold teh trivia questions
-const triviaQuestions = [
-  {
+//set counter for which question user is on
+let questionCount = 0;
+let score = 0;
+
+//Create a array to hold the trivia questions
+const triviaQuestions = [{
     question: 'At the first meeting of the Duelling Club, Draco Malfoy summoned what animal with the spell "Serpensortia"?',
     answerA: 'Frog',
     answerB: 'Snake',
@@ -79,7 +82,7 @@ const triviaQuestions = [
     answerB: 'Keeper',
     answerC: 'Bludger',
     answerD: 'Seeker',
-    correctAnswer:'D',
+    correctAnswer: 'D',
     answered: false,
   },
   {
@@ -111,9 +114,25 @@ const triviaQuestions = [
   },
 ];
 
+//function to display the question and answers
+function loadQuestion(triviaQuestion) {
+  //get html elements the will be changed
+  let question = document.getElementById('question');
+  let firstAnswer = document.getElementById('answerA');
+  let secondAnswer = document.getElementById('answerB');
+  let thirdAnswer = document.getElementById('answerC');
+  let fourthAnswer = document.getElementById('answerD');
+
+  question.innerHTML = triviaQuestion.question;
+  firstAnswer.innerHTML = 'A. ' + triviaQuestion.answerA;
+  secondAnswer.innerHTML = 'B. ' + triviaQuestion.answerB;
+  thirdAnswer.innerHTML = 'C. ' + triviaQuestion.answerC;
+  fourthAnswer.innerHTML = 'D. ' + triviaQuestion.answerD;
+}
+
 
 //function to create House Banners
-function createBanners(backgroundColor,animal){
+function createBanners(backgroundColor, animal) {
   //get aside elements that represent the banners
   let banner1 = document.getElementById('banner1');
   let banner2 = document.getElementById('banner2');
@@ -123,92 +142,166 @@ function createBanners(backgroundColor,animal){
   banner2.style.backgroundColor = backgroundColor;
 
   //Check to set if banner already has images if not create them
-  if(document.getElementById('bannerImage') === null){
+  if (document.getElementById('bannerImage') === null) {
 
-  //Create banner image to append to banner elements
-  let bannerImage = document.createElement("img");
-  let bannerImage2 = document.createElement("img");
+    //Create banner image to append to banner elements
+    let bannerImage = document.createElement("img");
+    let bannerImage2 = document.createElement("img");
 
-  //set id for images
-  bannerImage.id = 'bannerImage';
-  bannerImage2.id = 'bannerImage2';
+    //set id for images
+    bannerImage.id = 'bannerImage';
+    bannerImage2.id = 'bannerImage2';
 
-  //set banner image src to animal Silhouette
-  bannerImage.src = "img/" + animal + "-Silhouette.svg";
-  bannerImage2.src = "img/" + animal + "-Silhouette.svg";
+    //set banner image src to animal Silhouette
+    bannerImage.src = "img/" + animal + "-Silhouette.svg";
+    bannerImage2.src = "img/" + animal + "-Silhouette.svg";
 
-  //append banner image to the banners
-  banner1.appendChild(bannerImage);
-  banner2.appendChild(bannerImage2);
+    //append banner image to the banners
+    banner1.appendChild(bannerImage);
+    banner2.appendChild(bannerImage2);
+  } else { //change the banner image source
+    bannerImage = document.getElementById('bannerImage');
+    bannerImage2 = document.getElementById('bannerImage2');
+
+    bannerImage.src = "img/" + animal + "-Silhouette.svg";
+    bannerImage2.src = "img/" + animal + "-Silhouette.svg";
+
+  }
 }
-else { //change the banner image source
-  bannerImage = document.getElementById('bannerImage');
-  bannerImage2 = document.getElementById('bannerImage2');
 
-  bannerImage.src = "img/" + animal + "-Silhouette.svg";
-  bannerImage2.src = "img/" + animal + "-Silhouette.svg";
-
-}
+//function to display score
+function changeScore(newScore) {
+  document.getElementById('score').innerHTML = 'SCORE: ' + newScore + '/ ' + triviaQuestions.length;
 }
 
+//function to check if answer selected is the correct answer
+function checkCorrect(answer) {
+  //if answer is correct change background to green and display new score
+  if (triviaQuestions[questionCount].correctAnswer === answer) {
+    document.getElementById('answer' + answer).style.backgroundColor = 'green';
+    if(!triviaQuestions[questionCount].answered){
+      score++;
+      changeScore(score);
+    }
+    triviaQuestions[questionCount].answered = true;
+  } else {
+    //if incorrect change background to red and change correct answers background green 
+    document.getElementById('answer' + answer).style.backgroundColor = 'red';
+    document.getElementById('answer' + triviaQuestions[questionCount].correctAnswer).style.backgroundColor = 'green';
+  }
+}
 
 //get the buttons for the site
 let startGame = document.getElementById("gameStart");
 let quitGame = document.getElementById("quitGame");
+let nextQuestion = document.getElementById('nextQuestion');
+let answerA = document.getElementById('answerA');
+let answerB = document.getElementById('answerB');
+let answerC = document.getElementById('answerC');
+let answerD = document.getElementById('answerD');
 
 //set the onclick events to change banner colors to House colors
 gryffindorHouse.addEventListener('click',
-        function(){
-            //set background color of header and footer
-            document.getElementById('header').style.backgroundColor = gryffindorSecondary;
-            document.getElementById('footer').style.backgroundColor = gryffindorSecondary;});
+  function () {
+    //set background color of header and footer
+    document.getElementById('header').style.backgroundColor = gryffindorSecondary;
+    document.getElementById('footer').style.backgroundColor = gryffindorSecondary;
+  });
 
 gryffindorHouse.addEventListener('click',
-          function(){
-            createBanners(gryffindorPrimary, "Lion") }
-          );
+  function () {
+    createBanners(gryffindorPrimary, "Lion")
+  }
+);
 
 slytherinHouse.addEventListener('click',
-function(){
+  function () {
     //set background color of header and footer
     document.getElementById('header').style.backgroundColor = slytherinSecondary;
-    document.getElementById('footer').style.backgroundColor = slytherinSecondary;});
+    document.getElementById('footer').style.backgroundColor = slytherinSecondary;
+  });
 
 slytherinHouse.addEventListener('click',
-    function(){
-      createBanners(slytherinPrimary, "Snake") }
-    );
+  function () {
+    createBanners(slytherinPrimary, "Snake")
+  }
+);
 
 hufflepuffHouse.addEventListener('click',
-function(){
+  function () {
     //set background color of header and footer
     document.getElementById('header').style.backgroundColor = hufflepuffSecondary;
-    document.getElementById('footer').style.backgroundColor = hufflepuffSecondary;});
+    document.getElementById('footer').style.backgroundColor = hufflepuffSecondary;
+  });
 
 hufflepuffHouse.addEventListener('click',
-        function(){
-          createBanners(hufflepuffPrimary, "Badger") }
-        );
+  function () {
+    createBanners(hufflepuffPrimary, "Badger")
+  }
+);
 
 ravenclawHouse.addEventListener('click',
-function(){
+  function () {
     //set background color of header and footer
     document.getElementById('header').style.backgroundColor = ravenclawSecondary;
-    document.getElementById('footer').style.backgroundColor = ravenclawSecondary;});
+    document.getElementById('footer').style.backgroundColor = ravenclawSecondary;
+  });
 
 ravenclawHouse.addEventListener('click',
-        function(){
-          createBanners(ravenclawPrimary, "Raven") }
-        );
+  function () {
+    createBanners(ravenclawPrimary, "Raven")
+  }
+);
 
-startGame.addEventListener('click' ,
-  function(){
+startGame.addEventListener('click',
+  function () {
     document.getElementById('welcome').classList.add('hide');
     document.getElementById('triviaGame').classList.remove('hide');
   });
 
-  quitGame.addEventListener('click',
-  function(){
+startGame.addEventListener('click',
+  function () {
+    loadQuestion(triviaQuestions[questionCount]);
+  });
+
+quitGame.addEventListener('click',
+  function () {
     document.getElementById('welcome').classList.remove('hide');
     document.getElementById('triviaGame').classList.add('hide');
-  })
+    score = 0;
+    questionCount = 0;
+    changeScore(score);
+  });
+
+nextQuestion.addEventListener('click',
+  function () {
+    questionCount++;
+    if (questionCount > triviaQuestions.length) {
+      questionCount = 0;
+    }
+    loadQuestion(triviaQuestions[questionCount]);
+  });
+
+answerA.addEventListener('click',
+  function () {
+    checkCorrect('A');
+  }
+);
+
+answerB.addEventListener('click',
+function () {
+  checkCorrect('B');
+}
+);
+
+answerC.addEventListener('click',
+function () {
+  checkCorrect('C');
+}
+);
+
+answerD.addEventListener('click',
+function () {
+  checkCorrect('D');
+}
+);
