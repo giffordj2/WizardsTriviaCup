@@ -200,6 +200,12 @@ function resetColors(){
   }
 }
 
+function resetAnswers(){
+  for( let i =0; i < triviaQuestions.length; i++){
+    triviaQuestions[i].answered = false;
+  }
+}
+
 //get the buttons for the site
 let startGame = document.getElementById("gameStart");
 let quitGame = document.getElementById("quitGame");
@@ -280,6 +286,8 @@ quitGame.addEventListener('click',
     score = 0;
     questionCount = 0;
     changeScore(score);
+    resetAnswers();
+    resetColors();
   });
 
 nextQuestion.addEventListener('click',
