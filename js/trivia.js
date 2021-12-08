@@ -189,6 +189,7 @@ function checkCorrect(answer) {
     document.getElementById('answer' + answer).style.backgroundColor = 'red';
     document.getElementById('answer' + triviaQuestions[questionCount].correctAnswer).style.backgroundColor = 'green';
   }
+  triviaQuestions[questionCount].answered = true;
 }
 
 //function to reset answer buttons background colors
@@ -293,24 +294,32 @@ nextQuestion.addEventListener('click',
 
 answerA.addEventListener('click',
   function () {
-    checkCorrect('A');
+    if(!triviaQuestions[questionCount].answered){
+      checkCorrect('A');
+    }
   }
 );
 
 answerB.addEventListener('click',
 function () {
-  checkCorrect('B');
+  if(!triviaQuestions[questionCount].answered){
+    checkCorrect('B');
+  }
 }
 );
 
 answerC.addEventListener('click',
 function () {
-  checkCorrect('C');
+  if(!triviaQuestions[questionCount].answered){
+    checkCorrect('C');
+  }
 }
 );
 
 answerD.addEventListener('click',
 function () {
-  checkCorrect('D');
+  if(!triviaQuestions[questionCount].answered){
+    checkCorrect('D');
+  }
 }
 );
